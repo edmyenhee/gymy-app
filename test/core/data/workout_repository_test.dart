@@ -71,4 +71,20 @@ void main() {
     expect(set.rpe, isNull);
     expect(set.weightKg, 60);
   });
+
+  test('completeSession 標記完成並存總時間', () async {
+    final id = await repo.startSession(
+      title: '推日',
+      exercises: const [
+        PlannedSnapshot(name: '臥推', sets: 1, reps: 5, restSeconds: 90),
+      ],
+    );
+
+    await repo.completeSession(id, elapsedSeconds: 1850);
+
+    final detail = await repo.getSession(id);
+    expect(detail.session.status, SessionStatus.completed);
+    expect(detail.session.elapsedSeconds, 1850);
+    expect(detail.session.completedAt, isNotNull);
+  });
 }

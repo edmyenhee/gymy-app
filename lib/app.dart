@@ -7,6 +7,8 @@ import 'core/theme/app_dimens.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/app_typography.dart';
 import 'features/workout/rest_countdown.dart';
+import 'features/workout/sample_plan.dart';
+import 'features/workout/screens/workout_session_screen.dart';
 
 class GymyApp extends StatelessWidget {
   const GymyApp({super.key});
@@ -59,22 +61,32 @@ class _FoundationPlaceholder extends ConsumerWidget {
                     AppTypography.timerLarge.copyWith(color: AppColors.accent),
               ),
               const SizedBox(height: AppSpacing.xl),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.xxl,
-                  vertical: AppSpacing.lg,
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const WorkoutSessionScreen(
+                      title: sampleWorkoutTitle,
+                      plan: sampleWorkoutPlan,
+                    ),
+                  ),
                 ),
-                decoration: const BoxDecoration(
-                  gradient: AppColors.accentGradient,
-                  borderRadius: AppRadius.pillRadius,
-                  boxShadow: AppShadows.accentButton,
-                ),
-                child: Text(
-                  '開始今天的訓練',
-                  style: AppTypography.zh(
-                    size: 15,
-                    weight: FontWeight.w700,
-                    color: AppColors.onAccent,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.xxl,
+                    vertical: AppSpacing.lg,
+                  ),
+                  decoration: const BoxDecoration(
+                    gradient: AppColors.accentGradient,
+                    borderRadius: AppRadius.pillRadius,
+                    boxShadow: AppShadows.accentButton,
+                  ),
+                  child: Text(
+                    '開始今天的訓練',
+                    style: AppTypography.zh(
+                      size: 15,
+                      weight: FontWeight.w700,
+                      color: AppColors.onAccent,
+                    ),
                   ),
                 ),
               ),

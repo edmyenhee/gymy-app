@@ -101,6 +101,22 @@ class WorkoutRepository {
         );
   }
 
+  /// 標記訓練完成：狀態設為 completed、存完成時間與總時長。
+  Future<void> completeSession(
+    int sessionId, {
+    required int elapsedSeconds,
+  }) async {
+    await (_db.update(_db.workoutSessions)
+          ..where((t) => t.id.equals(sessionId)))
+        .write(
+      WorkoutSessionsCompanion(
+        status: const Value(SessionStatus.completed),
+        completedAt: Value(DateTime.now()),
+        elapsedSeconds: Value(elapsedSeconds),
+      ),
+    );
+  }
+
   /// 讀取整次訓練（session → 動作（依序）→ 每組（依序））。
   Future<SessionDetail> getSession(int sessionId) async {
     final session = await (_db.select(_db.workoutSessions)

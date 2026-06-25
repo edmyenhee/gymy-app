@@ -9,7 +9,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final notifications = LocalRestNotificationService();
-  await notifications.init();
+  try {
+    await notifications.init();
+  } catch (e, st) {
+    debugPrint('通知初始化失敗（不影響 app 啟動）: $e\n$st');
+  }
 
   runApp(
     ProviderScope(
