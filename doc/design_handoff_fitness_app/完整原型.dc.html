@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}::-webkit-scrollbar{width:0;height:0}</style>
+</helmet>
+
+<div style="min-height:100vh;background:#e8e6e0;display:flex;flex-direction:column;align-items:center;padding:22px 16px 36px;font-family:'Noto Sans TC',system-ui">
+<div style="font:700 16px 'Space Grotesk';color:#15140f;margin-bottom:3px">完整可點擊原型 · Lime × Graphite</div>
+<div style="font:15px 'Caveat',cursive;color:#7a766c;margin-bottom:14px">從歡迎頁開始，跟著綠色按鈕走完整段旅程 · 底部分頁可切換</div>
+
+<div style="width:322px;height:686px;background:#000;border-radius:46px;padding:7px;box-shadow:0 18px 48px rgba(0,0,0,.32)">
+<div style="width:100%;height:100%;border-radius:40px;overflow:hidden;position:relative;background:#15140f;font-family:'Space Grotesk','Noto Sans TC',sans-serif">
+<div style="position:absolute;top:11px;left:50%;transform:translateX(-50%);width:92px;height:27px;background:#000;border-radius:14px;z-index:60"></div>
+
+<!-- ============ WELCOME ============ -->
+<sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ true }}">
+<div style="height:100%;position:relative;background:radial-gradient(120% 70% at 50% 0%, #232a1f 0%, #15140f 50%)">
+<div style="display:flex;justify-content:space-between;padding:15px 24px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 32px;margin-top:-40px">
+<div style="width:76px;height:76px;border-radius:22px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 32px 'Space Grotesk';color:#06281a;box-shadow:0 0 30px rgba(95,227,154,.45);margin-bottom:28px">R</div>
+<div style="font:900 27px 'Noto Sans TC';color:#fff;text-align:center;line-height:1.3">記錄每一次<br>變強的瞬間</div>
+<div style="font:400 13px 'Noto Sans TC';color:#8a8a82;text-align:center;margin-top:14px;line-height:1.6">AI 幫你排課、追蹤計畫 vs 實際<br>讓進步看得見</div>
+</div>
+<div style="position:absolute;left:24px;right:24px;bottom:34px"><div onClick="{{ goBody }}" style="height:56px;border-radius:28px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 16px 'Noto Sans TC';color:#06281a;box-shadow:0 9px 22px rgba(95,227,154,.3);cursor:pointer">開始設定</div><div onClick="{{ goHome }}" style="text-align:center;font:400 12px 'Noto Sans TC';color:#6f6d66;margin-top:14px;cursor:pointer">已經有帳號？登入</div></div>
+</div>
+</sc-if>
+
+<!-- ============ BODY ============ -->
+<sc-if value="{{ isBody }}">
+<div style="height:100%;position:relative">
+<div style="display:flex;justify-content:space-between;padding:15px 24px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:20px 24px 0"><div style="display:flex;gap:5px;margin-bottom:22px"><div style="flex:1;height:4px;border-radius:2px;background:#5fe39a"></div><div style="flex:1;height:4px;border-radius:2px;background:#26241d"></div><div style="flex:1;height:4px;border-radius:2px;background:#26241d"></div></div><div style="font:700 22px 'Noto Sans TC';color:#fff">你的身體資料</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:6px">之後可隨時修改</div></div>
+<div style="padding:26px 24px 0;display:flex;flex-direction:column;gap:18px">
+<div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:8px">身高</div><div style="display:flex;align-items:baseline;gap:6px;border-bottom:1px solid #2c2b28;padding-bottom:9px"><span style="font:700 26px 'Space Grotesk';color:#fff">175</span><span style="font:400 12px 'Noto Sans TC';color:#6f6d66">cm</span></div></div>
+<div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:8px">體重</div><div style="display:flex;align-items:baseline;gap:6px;border-bottom:1.5px solid #5fe39a;padding-bottom:9px"><span style="font:700 26px 'Space Grotesk';color:#fff">72.4</span><span style="font:400 12px 'Noto Sans TC';color:#6f6d66">kg</span></div></div>
+<div style="display:flex;gap:14px"><div style="flex:1"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:8px">年齡</div><div style="border-bottom:1px solid #2c2b28;padding-bottom:9px"><span style="font:700 26px 'Space Grotesk';color:#fff">28</span></div></div>
+<div style="flex:1.4"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:8px">性別</div><div style="display:flex;gap:7px"><div style="flex:1;height:38px;border-radius:10px;background:rgba(95,227,154,.14);border:1.5px solid #5fe39a;display:flex;align-items:center;justify-content:center;font:600 12px 'Noto Sans TC';color:#5fe39a">男</div><div style="flex:1;height:38px;border-radius:10px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:500 12px 'Noto Sans TC';color:#8a8a82">女</div></div></div></div>
+</div>
+<div onClick="{{ goGoal }}" style="position:absolute;left:24px;right:24px;bottom:34px;height:54px;border-radius:27px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans TC';color:#06281a;cursor:pointer">下一步</div>
+</div>
+</sc-if>
+
+<!-- ============ GOAL ============ -->
+<sc-if value="{{ isGoal }}">
+<div style="height:100%;position:relative">
+<div style="display:flex;justify-content:space-between;padding:15px 24px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:20px 24px 0"><div style="display:flex;gap:5px;margin-bottom:22px"><div style="flex:1;height:4px;border-radius:2px;background:#5fe39a"></div><div style="flex:1;height:4px;border-radius:2px;background:#5fe39a"></div><div style="flex:1;height:4px;border-radius:2px;background:#26241d"></div></div><div style="font:700 22px 'Noto Sans TC';color:#fff">你的主要目標？</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:6px">影響 AI 排課的方向</div></div>
+<div style="padding:26px 24px 0;display:flex;flex-direction:column;gap:12px">
+<div onClick="{{ goFreq }}" style="border-radius:16px;background:rgba(95,227,154,.1);border:1.5px solid #5fe39a;padding:16px;display:flex;align-items:center;gap:14px;cursor:pointer"><div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 18px 'Space Grotesk';color:#06281a">↑</div><div style="flex:1"><div style="font:700 15px 'Noto Sans TC';color:#fff">增肌</div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-top:3px">提升肌肉量與力量</div></div><div style="width:20px;height:20px;border-radius:50%;background:#5fe39a;display:flex;align-items:center;justify-content:center;font:11px;color:#06281a">✓</div></div>
+<div onClick="{{ goFreq }}" style="border-radius:16px;background:#1e1c16;padding:16px;display:flex;align-items:center;gap:14px;cursor:pointer"><div style="width:44px;height:44px;border-radius:12px;background:#2a281f;display:flex;align-items:center;justify-content:center;font:700 18px 'Space Grotesk';color:#6f6d66">↓</div><div style="flex:1"><div style="font:700 15px 'Noto Sans TC';color:#cfcdc6">減脂</div><div style="font:400 11px 'Noto Sans TC';color:#6f6d66;margin-top:3px">降低體脂、維持肌肉</div></div></div>
+<div onClick="{{ goFreq }}" style="border-radius:16px;background:#1e1c16;padding:16px;display:flex;align-items:center;gap:14px;cursor:pointer"><div style="width:44px;height:44px;border-radius:12px;background:#2a281f;display:flex;align-items:center;justify-content:center;font:700 16px 'Space Grotesk';color:#6f6d66">＝</div><div style="flex:1"><div style="font:700 15px 'Noto Sans TC';color:#cfcdc6">維持</div><div style="font:400 11px 'Noto Sans TC';color:#6f6d66;margin-top:3px">保持目前體態</div></div></div>
+</div>
+<div onClick="{{ goFreq }}" style="position:absolute;left:24px;right:24px;bottom:34px;height:54px;border-radius:27px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans TC';color:#06281a;cursor:pointer">下一步</div>
+</div>
+</sc-if>
+
+<!-- ============ FREQ ============ -->
+<sc-if value="{{ isFreq }}">
+<div style="height:100%;position:relative">
+<div style="display:flex;justify-content:space-between;padding:15px 24px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:20px 24px 0"><div style="display:flex;gap:5px;margin-bottom:22px"><div style="flex:1;height:4px;border-radius:2px;background:#5fe39a"></div><div style="flex:1;height:4px;border-radius:2px;background:#5fe39a"></div><div style="flex:1;height:4px;border-radius:2px;background:#5fe39a"></div></div><div style="font:700 22px 'Noto Sans TC';color:#fff">訓練頻率</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:6px">AI 依此決定分化方式</div></div>
+<div style="padding:30px 24px 0">
+<div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:14px">一週幾天</div>
+<div style="display:flex;justify-content:space-between">
+<div style="width:38px;height:38px;border-radius:11px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:600 15px 'Space Grotesk';color:#6f6d66">2</div>
+<div style="width:38px;height:38px;border-radius:11px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:600 15px 'Space Grotesk';color:#6f6d66">3</div>
+<div style="width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 16px 'Space Grotesk';color:#06281a;box-shadow:0 0 14px rgba(95,227,154,.4)">4</div>
+<div style="width:38px;height:38px;border-radius:11px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:600 15px 'Space Grotesk';color:#6f6d66">5</div>
+<div style="width:38px;height:38px;border-radius:11px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:600 15px 'Space Grotesk';color:#6f6d66">6</div>
+</div>
+<div style="font:400 11px 'Noto Sans TC';color:#5fe39a;margin-top:12px">4 天 → 建議「上下肢分化」</div>
+<div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin:30px 0 14px">每次大約多久</div>
+<div style="display:flex;gap:9px"><div style="flex:1;height:42px;border-radius:12px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:500 13px 'Noto Sans TC';color:#8a8a82">45 分</div><div style="flex:1;height:42px;border-radius:12px;background:rgba(95,227,154,.14);border:1.5px solid #5fe39a;display:flex;align-items:center;justify-content:center;font:600 13px 'Noto Sans TC';color:#5fe39a">60 分</div><div style="flex:1;height:42px;border-radius:12px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:500 13px 'Noto Sans TC';color:#8a8a82">90 分</div></div>
+</div>
+<div onClick="{{ goGen }}" style="position:absolute;left:24px;right:24px;bottom:34px;height:54px;border-radius:27px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans TC';color:#06281a;box-shadow:0 9px 22px rgba(95,227,154,.3);cursor:pointer">生成我的課表 ✨</div>
+</div>
+</sc-if>
+
+<!-- ============ GENERATING ============ -->
+<sc-if value="{{ isGen }}">
+<div style="height:100%;position:relative;background:radial-gradient(120% 70% at 50% 40%, #232a1f 0%, #15140f 55%)">
+<div style="display:flex;justify-content:space-between;padding:15px 24px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:-30px;padding:0 38px">
+<div style="position:relative;width:120px;height:120px;display:flex;align-items:center;justify-content:center;margin-bottom:30px"><svg width="120" height="120" viewBox="0 0 120 120"><g transform="rotate(-90 60 60)"><circle cx="60" cy="60" r="50" fill="none" stroke="#26241d" stroke-width="6"></circle><circle cx="60" cy="60" r="50" fill="none" stroke="#5fe39a" stroke-width="6" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="{{ genOff }}" style="filter:drop-shadow(0 0 8px rgba(95,227,154,.6));transition:stroke-dashoffset .9s linear"></circle></g></svg><div style="position:absolute;font:700 26px 'Space Grotesk';color:#5fe39a">✨</div></div>
+<div style="font:700 19px 'Noto Sans TC';color:#fff;text-align:center">AI 正在為你排課表</div>
+<div style="font:400 13px 'Noto Sans TC';color:#8a8a82;text-align:center;margin-top:12px;line-height:1.6">依你的目標、頻率與經驗<br>量身打造每週訓練計畫</div>
+<div style="margin-top:26px;display:flex;flex-direction:column;gap:9px;width:100%">
+<div style="display:flex;align-items:center;gap:9px;font:400 12px 'Noto Sans TC';color:#cfcdc6"><span style="width:16px;height:16px;border-radius:50%;background:#5fe39a;display:flex;align-items:center;justify-content:center;font:9px;color:#06281a">✓</span>分析身體資料</div>
+<div style="display:flex;align-items:center;gap:9px;font:400 12px 'Noto Sans TC';color:#cfcdc6"><span style="width:16px;height:16px;border-radius:50%;background:#5fe39a;display:flex;align-items:center;justify-content:center;font:9px;color:#06281a">✓</span>規劃訓練分化</div>
+<div style="display:flex;align-items:center;gap:9px;font:400 12px 'Noto Sans TC';color:#8a8a82"><span style="width:16px;height:16px;border-radius:50%;border:1.5px solid #5fe39a"></span>挑選每日動作…</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- ============ CONFIRM ============ -->
+<sc-if value="{{ isConfirm }}">
+<div style="height:100%;position:relative">
+<div style="display:flex;justify-content:space-between;padding:15px 24px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:18px 22px 0"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="font:600 11px 'Noto Sans TC';color:#5fe39a;background:rgba(95,227,154,.12);padding:5px 11px;border-radius:20px">✨ AI 已排好</span><span style="font:400 11px 'Noto Sans TC';color:#8a8a82">可修改</span></div><div style="font:900 22px 'Noto Sans TC';color:#fff">本週課表</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:5px">4 天 · 上下肢分化 · 點動作可調整</div></div>
+<div style="padding:16px 18px 0;display:flex;flex-direction:column;gap:10px">
+<div style="border-radius:16px;background:radial-gradient(130% 90% at 80% 0%, #2a3324 0%, #1d1b15 60%);border:1px solid #2c3325;padding:14px 15px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px"><div style="font:700 14px 'Noto Sans TC';color:#fff">第 1 天 · 推日</div><span style="font:400 10px 'Noto Sans TC';color:#8a8a82">5 動作</span></div>
+<div style="display:flex;flex-direction:column;gap:1px">
+<sc-for list="{{ day1 }}" as="d" hint-placeholder-count="3">
+<div onClick="{{ d.edit }}" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;cursor:pointer"><span style="font:500 12px 'Noto Sans TC';color:#cfcdc6">{{ d.name }}</span><div style="display:flex;align-items:center;gap:9px"><span style="font:500 11px 'Space Grotesk';color:#8a8a82">{{ d.scheme }}</span><span style="font:600 11px 'Noto Sans TC';color:#5fe39a;background:rgba(95,227,154,.12);padding:2px 8px;border-radius:12px">改</span></div></div>
+</sc-for>
+</div>
+</div>
+<div style="border-radius:16px;background:#1e1c16;padding:14px 15px;display:flex;justify-content:space-between;align-items:center"><div style="font:700 13px 'Noto Sans TC';color:#cfcdc6">第 2 天 · 拉日</div><span style="font:400 14px;color:#3a3833">›</span></div>
+<div style="border-radius:16px;background:#1e1c16;padding:14px 15px;display:flex;justify-content:space-between;align-items:center"><div style="font:700 13px 'Noto Sans TC';color:#cfcdc6">第 3 天 · 腿日</div><span style="font:400 14px;color:#3a3833">›</span></div>
+</div>
+<div style="position:absolute;left:18px;right:18px;bottom:30px;display:flex;gap:10px"><div onClick="{{ goGen }}" style="flex:1;height:52px;border-radius:26px;border:1.5px solid #2c2b28;display:flex;align-items:center;justify-content:center;font:600 13px 'Noto Sans TC';color:#cfcdc6;cursor:pointer">重新生成</div><div onClick="{{ goHome }}" style="flex:1.5;height:52px;border-radius:26px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans TC';color:#06281a;box-shadow:0 8px 20px rgba(95,227,154,.28);cursor:pointer">確認並儲存</div></div>
+</div>
+</sc-if>
+
+<!-- ============ HOME ============ -->
+<sc-if value="{{ isHome }}">
+<div style="height:100%;position:relative;padding-bottom:74px">
+<div style="display:flex;justify-content:space-between;padding:15px 22px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:18px 22px 0;display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82">6 月 25 日 · 週四</div><div style="font:900 23px 'Noto Sans TC';color:#fff;margin-top:4px">早安，阿凱 👋</div></div><div onClick="{{ goProfile }}" style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Space Grotesk';color:#06281a;cursor:pointer">凱</div></div>
+<div style="margin:18px 18px 0;border-radius:20px;background:radial-gradient(130% 90% at 80% 0%, #2a3324 0%, #1d1b15 60%);border:1px solid #2c3325;padding:18px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font:700 11px 'Noto Sans TC';color:#06281a;background:#5fe39a;padding:4px 10px;border-radius:20px">今日訓練</span><span style="font:400 11px 'Noto Sans TC';color:#8a8a82">預估 55 分</span></div>
+<div style="font:900 22px 'Noto Sans TC';color:#fff;margin-top:14px">推日 · 胸肩三頭</div>
+<div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:5px">5 個動作 · 上次 60kg 臥推</div>
+<div onClick="{{ goPre }}" style="height:50px;border-radius:25px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans TC';color:#06281a;margin-top:16px;box-shadow:0 8px 20px rgba(95,227,154,.28);cursor:pointer">開始訓練</div>
+</div>
+<div style="display:flex;gap:11px;padding:12px 18px 0">
+<div onClick="{{ goData }}" style="flex:1;background:#1e1c16;border-radius:16px;padding:13px 14px;cursor:pointer"><div style="font:400 10px 'Noto Sans TC';color:#8a8a82">體重</div><div style="display:flex;align-items:baseline;gap:3px;margin-top:6px"><span style="font:700 22px 'Space Grotesk';color:#fff">72.4</span><span style="font:400 10px 'Noto Sans TC';color:#8a8a82">kg</span></div><div style="font:500 10px 'Space Grotesk';color:#5fe39a;margin-top:3px">↓ 0.6 本週</div></div>
+<div onClick="{{ goPlan }}" style="flex:1;background:#1e1c16;border-radius:16px;padding:13px 14px;cursor:pointer"><div style="font:400 10px 'Noto Sans TC';color:#8a8a82">本週訓練</div><div style="display:flex;align-items:baseline;gap:3px;margin-top:6px"><span style="font:700 22px 'Space Grotesk';color:#fff">2</span><span style="font:400 10px 'Noto Sans TC';color:#8a8a82">/ 4 次</span></div><div style="display:flex;gap:3px;margin-top:8px"><div style="width:13px;height:5px;border-radius:3px;background:#5fe39a"></div><div style="width:13px;height:5px;border-radius:3px;background:#5fe39a"></div><div style="width:13px;height:5px;border-radius:3px;background:#2c2b28"></div><div style="width:13px;height:5px;border-radius:3px;background:#2c2b28"></div></div></div>
+</div>
+</div>
+</sc-if>
+
+<!-- ============ PLAN ============ -->
+<sc-if value="{{ isPlan }}">
+<div style="height:100%;position:relative;padding-bottom:74px;overflow-y:auto">
+<div style="display:flex;justify-content:space-between;padding:15px 22px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:18px 22px 0;display:flex;justify-content:space-between;align-items:center"><div style="font:900 22px 'Noto Sans TC';color:#fff">本週課表</div><span style="font:600 11px 'Noto Sans TC';color:#5fe39a;background:rgba(95,227,154,.12);padding:5px 11px;border-radius:20px">✨ AI 排定</span></div>
+<div style="padding:7px 22px 0;font:400 11px 'Noto Sans TC';color:#8a8a82">點任一天展開動作 · 點動作可調整</div>
+<div style="padding:16px 18px 0;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ weekRows }}" as="d" hint-placeholder-count="5">
+<div style="border-radius:15px;background:{{ d.bg }};border:{{ d.border }};overflow:hidden">
+<div onClick="{{ d.toggle }}" style="padding:14px 15px;display:flex;align-items:center;gap:13px;cursor:pointer">
+<div style="width:34px;height:34px;border-radius:10px;background:{{ d.iconBg }};display:flex;align-items:center;justify-content:center;font:600 11px 'Noto Sans TC';color:{{ d.iconColor }}">{{ d.day }}</div>
+<div style="flex:1"><div style="font:700 13px 'Noto Sans TC';color:{{ d.nameColor }}">{{ d.name }}</div><div style="font:400 10px 'Noto Sans TC';color:#6f6d66;margin-top:2px">{{ d.sub }}</div></div>
+<sc-if value="{{ d.isDone }}"><span style="width:18px;height:18px;border-radius:50%;background:#5fe39a;display:flex;align-items:center;justify-content:center;font:10px;color:#06281a">✓</span></sc-if>
+<sc-if value="{{ d.isToday }}"><span style="font:600 10px 'Noto Sans TC';color:#06281a;background:#5fe39a;padding:3px 9px;border-radius:12px">今天</span></sc-if>
+<sc-if value="{{ d.notRest }}"><span style="font:400 16px 'Space Grotesk';color:#6f6d66;width:14px;text-align:center">{{ d.caret }}</span></sc-if>
+</div>
+<sc-if value="{{ d.expanded }}">
+<div style="padding:0 15px 14px">
+<sc-for list="{{ d.exList }}" as="x" hint-placeholder-count="4">
+<div onClick="{{ x.edit }}" style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid #232220;cursor:{{ x.cursor }}"><span style="font:500 12px 'Noto Sans TC';color:#cfcdc6">{{ x.name }}</span><div style="display:flex;align-items:center;gap:9px"><span style="font:500 11px 'Space Grotesk';color:#8a8a82">{{ x.scheme }}</span><sc-if value="{{ x.editable }}"><span style="font:600 11px 'Noto Sans TC';color:#5fe39a;background:rgba(95,227,154,.12);padding:2px 8px;border-radius:12px">改</span></sc-if></div></div>
+</sc-for>
+<sc-if value="{{ d.isToday }}"><div onClick="{{ goPre }}" style="margin-top:13px;height:46px;border-radius:23px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans TC';color:#06281a;box-shadow:0 8px 20px rgba(95,227,154,.28);cursor:pointer">開始這天的訓練</div></sc-if>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<!-- ============ DATA ============ -->
+<sc-if value="{{ isData }}">
+<div style="height:100%;position:relative;padding-bottom:74px;overflow-y:auto">
+<div style="display:flex;justify-content:space-between;padding:15px 22px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:18px 22px 0;display:flex;justify-content:space-between;align-items:center"><div style="font:900 22px 'Noto Sans TC';color:#fff">身體數據</div><div style="width:34px;height:34px;border-radius:11px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:300 22px 'Space Grotesk';color:#5fe39a">+</div></div>
+<div style="display:flex;gap:7px;padding:16px 18px 0"><div style="background:rgba(95,227,154,.14);border:1.5px solid #5fe39a;border-radius:20px;padding:7px 15px;font:600 12px 'Noto Sans TC';color:#5fe39a">體重</div><div style="background:#1e1c16;border-radius:20px;padding:7px 15px;font:500 12px 'Noto Sans TC';color:#8a8a82">體脂</div><div style="background:#1e1c16;border-radius:20px;padding:7px 15px;font:500 12px 'Noto Sans TC';color:#8a8a82">圍度</div></div>
+<div style="padding:20px 22px 0"><div style="display:flex;align-items:baseline;gap:8px"><span style="font:700 46px 'Space Grotesk';color:#fff;letter-spacing:-1px">72.4</span><span style="font:400 14px 'Noto Sans TC';color:#8a8a82">kg</span><span style="font:600 13px 'Space Grotesk';color:#5fe39a;margin-left:auto">↓ 1.8 kg</span></div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-top:2px">過去 90 天</div></div>
+<div style="padding:16px 18px 0"><div style="background:#1e1c16;border-radius:18px;padding:18px 14px 14px">
+<svg width="100%" height="120" viewBox="0 0 248 120" preserveAspectRatio="none"><line x1="0" y1="30" x2="248" y2="30" stroke="#26241d" stroke-width="1"></line><line x1="0" y1="70" x2="248" y2="70" stroke="#26241d" stroke-width="1"></line><polyline points="0,18 31,26 62,22 93,44 124,40 155,62 186,70 217,82 248,96" fill="none" stroke="#5fe39a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 6px rgba(95,227,154,.4))"></polyline><circle cx="248" cy="96" r="4.5" fill="#5fe39a"></circle></svg>
+<div style="display:flex;justify-content:space-between;margin-top:10px;font:400 10px 'Space Grotesk';color:#6f6d66"><span>3月</span><span>4月</span><span>5月</span><span>6月</span></div>
+</div></div>
+<div style="padding:14px 18px 0"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:10px">最近紀錄</div><div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:9px;border-bottom:1px solid #232220"><span style="font:400 12px 'Noto Sans TC';color:#cfcdc6">6/25</span><span style="font:600 13px 'Space Grotesk';color:#fff">72.4 kg</span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0"><span style="font:400 12px 'Noto Sans TC';color:#cfcdc6">6/22</span><span style="font:600 13px 'Space Grotesk';color:#fff">73.0 kg</span></div></div>
+</div>
+</sc-if>
+
+<!-- ============ DIET ============ -->
+<sc-if value="{{ isDiet }}">
+<div style="height:100%;position:relative;padding-bottom:74px;overflow-y:auto">
+<div style="display:flex;justify-content:space-between;padding:15px 22px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="padding:18px 22px 0"><div style="font:900 22px 'Noto Sans TC';color:#fff">今日飲食</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:5px">6 月 25 日 · 增肌期目標</div></div>
+<div style="display:flex;align-items:center;gap:18px;padding:18px 22px 0">
+<div style="position:relative;width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="96" height="96" viewBox="0 0 96 96"><g transform="rotate(-90 48 48)"><circle cx="48" cy="48" r="40" fill="none" stroke="#26241d" stroke-width="8"></circle><circle cx="48" cy="48" r="40" fill="none" stroke="#5fe39a" stroke-width="8" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="74" style="filter:drop-shadow(0 0 6px rgba(95,227,154,.4))"></circle></g></svg><div style="position:absolute;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#fff">1850</div><div style="font:400 9px 'Noto Sans TC';color:#8a8a82">/ 2500</div></div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:11px">
+<div><div style="display:flex;justify-content:space-between;font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:5px"><span>蛋白質</span><span style="color:#5fe39a;font-family:'Space Grotesk'">120 / 160g</span></div><div style="height:6px;border-radius:3px;background:#26241d;overflow:hidden"><div style="width:75%;height:100%;background:#5fe39a"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:5px"><span>碳水</span><span style="color:#cfcdc6;font-family:'Space Grotesk'">180 / 280g</span></div><div style="height:6px;border-radius:3px;background:#26241d;overflow:hidden"><div style="width:64%;height:100%;background:#cfcdc6"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:5px"><span>脂肪</span><span style="color:#cfcdc6;font-family:'Space Grotesk'">52 / 70g</span></div><div style="height:6px;border-radius:3px;background:#26241d;overflow:hidden"><div style="width:74%;height:100%;background:#cfcdc6"></div></div></div>
+</div>
+</div>
+<div style="padding:20px 18px 0;display:flex;flex-direction:column;gap:9px">
+<div style="border-radius:15px;background:#1e1c16;padding:13px 15px;display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;border-radius:10px;background:#2a281f;display:flex;align-items:center;justify-content:center;font:15px">🍳</div><div style="flex:1"><div style="font:700 13px 'Noto Sans TC';color:#fff">早餐</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:2px">蛋餅・豆漿</div></div><span style="font:600 12px 'Space Grotesk';color:#cfcdc6">480</span></div>
+<div style="border-radius:15px;background:#1e1c16;padding:13px 15px;display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;border-radius:10px;background:#2a281f;display:flex;align-items:center;justify-content:center;font:15px">🍱</div><div style="flex:1"><div style="font:700 13px 'Noto Sans TC';color:#fff">午餐</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:2px">雞胸便當</div></div><span style="font:600 12px 'Space Grotesk';color:#cfcdc6">720</span></div>
+<div style="border-radius:15px;background:#15140f;border:1.5px dashed #2c2b28;padding:13px 15px;display:flex;align-items:center;justify-content:center;gap:8px"><span style="font:300 18px 'Space Grotesk';color:#5fe39a">+</span><span style="font:600 12px 'Noto Sans TC';color:#8a8a82">記錄晚餐</span></div>
+</div>
+</div>
+</sc-if>
+
+<!-- ============ PROFILE ============ -->
+<sc-if value="{{ isProfile }}">
+<div style="height:100%;position:relative;padding-bottom:74px;overflow-y:auto">
+<div style="display:flex;justify-content:space-between;padding:15px 22px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;padding:20px 22px 0"><div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 28px 'Space Grotesk';color:#06281a;box-shadow:0 0 24px rgba(95,227,154,.4)">凱</div><div style="font:900 19px 'Noto Sans TC';color:#fff;margin-top:14px">阿凱</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:4px">增肌中 · 已堅持 87 天 🔥</div></div>
+<div style="display:flex;gap:10px;padding:22px 18px 0">
+<div style="flex:1;background:#1e1c16;border-radius:15px;padding:13px;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#5fe39a">48</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:3px">總訓練</div></div>
+<div style="flex:1;background:#1e1c16;border-radius:15px;padding:13px;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#fff">12</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:3px">連續週</div></div>
+<div style="flex:1;background:#1e1c16;border-radius:15px;padding:13px;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#fff">5.2<span style="font-size:10px;color:#8a8a82">t</span></div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:3px">總噸位</div></div>
+</div>
+<div style="padding:18px 18px 0;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:13px;padding:14px 6px;border-bottom:1px solid #1e1c16"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">🎯</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#cfcdc6">目標與身體資料</span><span style="font:400 14px;color:#3a3833">›</span></div>
+<div style="display:flex;align-items:center;gap:13px;padding:14px 6px;border-bottom:1px solid #1e1c16"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">📋</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#cfcdc6">我的課表</span><span style="font:400 14px;color:#3a3833">›</span></div>
+<div style="display:flex;align-items:center;gap:13px;padding:14px 6px;border-bottom:1px solid #1e1c16"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">🔔</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#cfcdc6">提醒與通知</span><span style="font:400 14px;color:#3a3833">›</span></div>
+<div onClick="{{ goWelcome }}" style="display:flex;align-items:center;gap:13px;padding:14px 6px;cursor:pointer"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">↻</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#8a8a82">重新體驗導覽（重置）</span><span style="font:400 14px;color:#3a3833">›</span></div>
+</div>
+</div>
+</sc-if>
+
+<!-- ============ PRE-WORKOUT ============ -->
+<sc-if value="{{ isPre }}">
+<div style="height:100%;display:flex;flex-direction:column;padding:15px 22px 20px">
+<div style="display:flex;justify-content:space-between;align-items:center;font:500 13px 'Space Grotesk';color:#c9c6bd;padding-top:4px"><span onClick="{{ goHome }}" style="cursor:pointer;color:#8a8a82">‹ 返回</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="margin-top:20px"><div style="font:400 12px 'Noto Sans TC';color:#8a8a82">準備開始</div><div style="font:900 25px 'Noto Sans TC';color:#fff;margin-top:5px">推日 · 胸肩三頭</div><div style="font:400 13px 'Noto Sans TC';color:#8a8a82;margin-top:6px">5 個動作 · 預估 55 分鐘 · 點動作可調整</div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:9px;margin-top:20px;overflow:hidden">
+<sc-for list="{{ preList }}" as="ex" hint-placeholder-count="5">
+<div onClick="{{ ex.edit }}" style="display:flex;align-items:center;gap:13px;background:#1e1c16;border-radius:15px;padding:13px 15px;cursor:pointer"><div style="width:32px;height:32px;border-radius:9px;background:#2a281f;display:flex;align-items:center;justify-content:center;font:600 13px 'Space Grotesk';color:#5fe39a">{{ ex.num }}</div><div style="flex:1"><div style="font:700 14px 'Noto Sans TC';color:#fff">{{ ex.name }}</div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-top:2px">{{ ex.scheme }}</div></div><span style="font:600 11px 'Noto Sans TC';color:#5fe39a;background:rgba(95,227,154,.12);padding:3px 9px;border-radius:12px">改</span></div>
+</sc-for>
+</div>
+<div onClick="{{ start }}" style="height:58px;border-radius:29px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 17px 'Noto Sans TC';color:#06281a;box-shadow:0 10px 24px rgba(95,227,154,.3);cursor:pointer;margin-top:14px">開始今天的訓練</div>
+</div>
+</sc-if>
+
+<!-- ============ RECORD ============ -->
+<sc-if value="{{ isRecord }}">
+<div style="height:100%;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:15px 22px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px 22px 0"><div style="display:flex;align-items:center;gap:8px"><span style="font:700 12px 'Noto Sans TC';color:#06281a;background:#5fe39a;padding:4px 11px;border-radius:20px">推日</span><span style="font:500 12px 'Space Grotesk';color:#8a8a82">動作 {{ exNum }} / 5</span></div><span style="font:500 12px 'Space Grotesk';color:#8a8a82">⏱ {{ elapsedText }}</span></div>
+<div style="padding:28px 24px 0"><div style="font:700 26px 'Noto Sans TC';color:#fff;letter-spacing:-.5px">{{ curName }}</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:6px">目標 {{ curScheme }} · 課表 {{ curWeight }}kg</div></div>
+<div style="display:flex;gap:7px;padding:22px 24px 0"><sc-for list="{{ setDots }}" as="d" hint-placeholder-count="3"><sc-if value="{{ d.done }}"><div style="flex:1;height:4px;border-radius:2px;background:#5fe39a"></div></sc-if><sc-if value="{{ d.notdone }}"><div style="flex:1;height:4px;border-radius:2px;background:#26241d"></div></sc-if></sc-for></div>
+<div style="padding:8px 24px 0"><span style="font:500 10px 'Space Grotesk';color:#8a8a82;letter-spacing:1px">SET {{ setNum }} / {{ curSets }}</span></div>
+<div style="flex:1"></div>
+<div style="padding:0 24px">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid #26241d;padding-bottom:16px;margin-bottom:18px"><span style="font:400 12px 'Noto Sans TC';color:#8a8a82">重量</span><div style="display:flex;align-items:center;gap:16px"><div onClick="{{ wDown }}" style="font:300 26px 'Space Grotesk';color:#6f6d66;cursor:pointer;width:24px;text-align:center;user-select:none">−</div><span style="font:700 34px 'Space Grotesk';color:#fff;font-variant-numeric:tabular-nums;min-width:62px;text-align:center">{{ draftW }}<span style="font-size:14px;font-weight:400;color:#8a8a82"> kg</span></span><div onClick="{{ wUp }}" style="font:300 26px 'Space Grotesk';color:#5fe39a;cursor:pointer;width:24px;text-align:center;user-select:none">+</div></div></div>
+<div style="display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid #26241d;padding-bottom:16px"><span style="font:400 12px 'Noto Sans TC';color:#8a8a82">次數</span><div style="display:flex;align-items:center;gap:16px"><div onClick="{{ rDown }}" style="font:300 26px 'Space Grotesk';color:#6f6d66;cursor:pointer;width:24px;text-align:center;user-select:none">−</div><span style="font:700 34px 'Space Grotesk';color:#fff;font-variant-numeric:tabular-nums;min-width:62px;text-align:center">{{ draftR }}</span><div onClick="{{ rUp }}" style="font:300 26px 'Space Grotesk';color:#5fe39a;cursor:pointer;width:24px;text-align:center;user-select:none">+</div></div></div>
+</div>
+<div onClick="{{ completeSet }}" style="margin:22px 24px 22px;height:56px;border-radius:16px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 16px 'Noto Sans TC';color:#06281a;box-shadow:0 9px 22px rgba(95,227,154,.3);cursor:pointer">完成這組</div>
+</div>
+</sc-if>
+
+<!-- ============ REST ============ -->
+<sc-if value="{{ isRest }}">
+<div style="height:100%;display:flex;flex-direction:column;background:radial-gradient(125% 75% at 50% -8%, #232a1f 0%, #15140f 52%)">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:15px 22px 0;font:500 13px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:18px 22px 0"><div style="display:flex;align-items:center;gap:8px"><span style="font:700 12px 'Noto Sans TC';color:#06281a;background:#5fe39a;padding:4px 11px;border-radius:20px">推日</span><span style="font:500 12px 'Space Grotesk';color:#8a8a82">動作 {{ exNum }} / 5</span></div><span style="font:500 12px 'Space Grotesk';color:#8a8a82">⏱ {{ elapsedText }}</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;margin-top:28px">
+<div style="font:700 12px 'Noto Sans TC';color:#5fe39a;letter-spacing:5px;margin-bottom:18px">休 息 中</div>
+<div style="position:relative;width:222px;height:222px;display:flex;align-items:center;justify-content:center">
+<svg width="222" height="222" viewBox="0 0 222 222"><defs><linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#76f0ab"></stop><stop offset="1" stop-color="#28b56f"></stop></linearGradient></defs><g transform="rotate(-90 111 111)"><circle cx="111" cy="111" r="84" fill="none" stroke="#26241d" stroke-width="13"></circle><circle cx="111" cy="111" r="84" fill="none" stroke="url(#gRing)" stroke-width="13" stroke-linecap="round" stroke-dasharray="527.8" stroke-dashoffset="{{ ringOff }}" style="filter:drop-shadow(0 0 9px rgba(95,227,154,.55));transition:stroke-dashoffset 1s linear"></circle></g></svg>
+<div style="position:absolute;text-align:center"><div style="font:700 60px 'Space Grotesk';color:#fff;line-height:1;letter-spacing:-2px;font-variant-numeric:tabular-nums">{{ restText }}</div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-top:7px">{{ restTotText }}</div></div>
+</div>
+<div style="font:500 14px 'Noto Sans TC';color:#b3b0a8;margin-top:22px">{{ restMsg }}</div>
+</div>
+<div style="flex:1"></div>
+<div style="padding:0 18px"><div style="background:#211f19;border-radius:18px;padding:13px 16px;display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;border-radius:11px;background:#2c2a22;display:flex;align-items:center;justify-content:center;font:700 14px 'Space Grotesk';color:#5fe39a">↑</div><div style="flex:1"><div style="font:500 10px 'Noto Sans TC';color:#8a8a82;margin-bottom:3px">下一組</div><div style="font:700 14px 'Noto Sans TC';color:#fff">{{ curName }} · {{ nextLabel }}</div></div></div></div>
+<div style="display:flex;gap:11px;padding:12px 18px 6px"><div onClick="{{ skipRest }}" style="flex:1;height:52px;border-radius:26px;border:1.5px solid #34322a;display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans TC';color:#cfcdc6;cursor:pointer">跳過</div><div onClick="{{ addRest }}" style="flex:1;height:52px;border-radius:26px;border:1.5px solid #34322a;display:flex;align-items:center;justify-content:center;font:600 14px 'Space Grotesk';color:#cfcdc6;cursor:pointer">+30s</div></div>
+<div style="text-align:center;padding-bottom:16px;font:500 10px 'Noto Sans TC';color:#5f5e57">倒數結束震動提示 · 鎖屏仍通知</div>
+</div>
+</sc-if>
+
+<!-- ============ FINISHED ============ -->
+<sc-if value="{{ isFinished }}">
+<div style="height:100%;display:flex;flex-direction:column;padding:15px 22px 20px;overflow-y:auto">
+<div style="display:flex;justify-content:space-between;align-items:center;font:500 13px 'Space Grotesk';color:#c9c6bd;padding-top:4px"><span>9:41</span><span style="font-size:10px">●●● ▮</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;margin-top:22px"><div style="width:72px;height:72px;border-radius:50%;background:rgba(95,227,154,.14);display:flex;align-items:center;justify-content:center;margin-bottom:14px"><div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:22px;color:#06281a;box-shadow:0 0 18px rgba(95,227,154,.5)">✓</div></div><div style="font:700 22px 'Noto Sans TC';color:#fff">訓練完成！</div><div style="font:18px 'Caveat',cursive;color:#5fe39a;margin-top:5px">做得好，今天也有進步 💪</div></div>
+<div style="display:flex;gap:11px;margin-top:22px"><div style="flex:1;background:#1e1c16;border-radius:16px;padding:15px;text-align:center"><div style="font:700 24px 'Space Grotesk';color:#fff;font-variant-numeric:tabular-nums">{{ elapsedText }}</div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-top:4px">總時間</div></div><div style="flex:1;background:#1e1c16;border-radius:16px;padding:15px;text-align:center"><div style="font:700 24px 'Space Grotesk';color:#fff;font-variant-numeric:tabular-nums">{{ progText }}</div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-top:4px">完成組數</div></div></div>
+<div style="background:#1e1c16;border-radius:16px;padding:16px;margin-top:11px"><div style="font:500 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:13px">計畫 vs 實際</div>
+<sc-for list="{{ summary }}" as="row" hint-placeholder-count="5"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font:500 13px 'Noto Sans TC';color:#cfcdc6">{{ row.name }}</span><span style="font:500 12px 'Space Grotesk';color:#fff">{{ row.actualStr }}</span></div></sc-for>
+</div>
+<div onClick="{{ finishToHome }}" style="height:54px;border-radius:27px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans TC';color:#06281a;cursor:pointer;margin-top:14px;box-shadow:0 9px 22px rgba(95,227,154,.3)">完成並存檔</div>
+</div>
+</sc-if>
+
+<!-- ============ EDIT SHEET (overlay) ============ -->
+<sc-if value="{{ editing }}">
+<div onClick="{{ closeEdit }}" style="position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:55"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:#1b1914;border-radius:28px 28px 40px 40px;padding:16px 22px 30px;box-shadow:0 -10px 30px rgba(0,0,0,.45);z-index:56">
+<div style="width:40px;height:4px;border-radius:2px;background:#3a3833;margin:0 auto 18px"></div>
+<div style="font:700 18px 'Noto Sans TC';color:#fff;margin-bottom:4px">{{ editName }}</div>
+<div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:22px">調整組數 / 次數 / 休息 · 會套用到訓練</div>
+<div style="display:flex;gap:12px;margin-bottom:18px">
+<div style="flex:1"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:9px">組數</div><div style="background:#15140f;border-radius:13px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px"><div onClick="{{ eSetDn }}" style="font:300 22px 'Space Grotesk';color:#6f6d66;cursor:pointer;user-select:none;width:22px;text-align:center">−</div><span style="font:700 22px 'Space Grotesk';color:#fff">{{ eS }}</span><div onClick="{{ eSetUp }}" style="font:300 20px 'Space Grotesk';color:#5fe39a;cursor:pointer;user-select:none;width:22px;text-align:center">+</div></div></div>
+<div style="flex:1"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:9px">次數</div><div style="background:#15140f;border-radius:13px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px"><div onClick="{{ eRepDn }}" style="font:300 22px 'Space Grotesk';color:#6f6d66;cursor:pointer;user-select:none;width:22px;text-align:center">−</div><span style="font:700 22px 'Space Grotesk';color:#fff">{{ eR }}</span><div onClick="{{ eRepUp }}" style="font:300 20px 'Space Grotesk';color:#5fe39a;cursor:pointer;user-select:none;width:22px;text-align:center">+</div></div></div>
+</div>
+<div style="margin-bottom:24px"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:9px">休息（秒）</div><div style="background:#15140f;border-radius:13px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px"><div onClick="{{ eRestDn }}" style="font:300 22px 'Space Grotesk';color:#6f6d66;cursor:pointer;user-select:none;width:22px;text-align:center">−</div><span style="font:700 22px 'Space Grotesk';color:#fff">{{ eRest }}</span><div onClick="{{ eRestUp }}" style="font:300 20px 'Space Grotesk';color:#5fe39a;cursor:pointer;user-select:none;width:22px;text-align:center">+</div></div></div>
+<div onClick="{{ saveEdit }}" style="height:54px;border-radius:27px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans TC';color:#06281a;cursor:pointer">完成</div>
+</div>
+</sc-if>
+
+<!-- ============ TAB BAR ============ -->
+<sc-if value="{{ showTabs }}">
+<div style="position:absolute;left:0;right:0;bottom:0;background:#161410;border-top:1px solid #232220;display:flex;justify-content:space-around;padding:11px 0 18px;z-index:40">
+<div onClick="{{ goHome }}" style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><div style="width:22px;height:22px;border-radius:7px;background:{{ homeDot }}"></div><div style="font:500 9px 'Noto Sans TC';color:{{ homeTxt }}">首頁</div></div>
+<div onClick="{{ goPlan }}" style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><div style="width:22px;height:22px;border-radius:7px;background:{{ planDot }}"></div><div style="font:500 9px 'Noto Sans TC';color:{{ planTxt }}">課表</div></div>
+<div onClick="{{ goData }}" style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><div style="width:22px;height:22px;border-radius:7px;background:{{ dataDot }}"></div><div style="font:500 9px 'Noto Sans TC';color:{{ dataTxt }}">數據</div></div>
+<div onClick="{{ goDiet }}" style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><div style="width:22px;height:22px;border-radius:7px;background:{{ dietDot }}"></div><div style="font:500 9px 'Noto Sans TC';color:{{ dietTxt }}">飲食</div></div>
+<div onClick="{{ goProfile }}" style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer"><div style="width:22px;height:22px;border-radius:7px;background:{{ profileDot }}"></div><div style="font:500 9px 'Noto Sans TC';color:{{ profileTxt }}">我</div></div>
+</div>
+</sc-if>
+
+</div>
+</div>
+
+<div style="display:flex;gap:8px;margin-top:16px"><div onClick="{{ goWelcome }}" style="font:600 12px 'Noto Sans TC';color:#7a766c;background:#fff;padding:9px 16px;border-radius:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer">↻ 從頭開始</div><div onClick="{{ goHome }}" style="font:600 12px 'Noto Sans TC';color:#7a766c;background:#fff;padding:9px 16px;border-radius:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer">跳到 App 首頁</div></div>
+<div style="font:14px 'Caveat',cursive;color:#7a766c;margin-top:12px;max-width:330px;text-align:center">歡迎 → 設定 → AI 生成 → 確認課表 → 首頁 → 開始訓練 → 記錄 → 休息 → 完成 → 回首頁</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.PUSH=[{name:'槓鈴臥推',w:60,r:8,sets:3,rest:90},{name:'啞鈴上斜推',w:22,r:10,sets:3,rest:60},{name:'肩推',w:20,r:10,sets:3,rest:60},{name:'三頭下壓',w:25,r:12,sets:3,rest:45},{name:'側平舉',w:8,r:15,sets:3,rest:45}];
+    this.PULL=[{name:'引體向上',w:0,r:8,sets:3,rest:90},{name:'槓鈴划船',w:50,r:10,sets:3,rest:75},{name:'滑輪下拉',w:45,r:12,sets:3,rest:60},{name:'臉拉',w:20,r:15,sets:3,rest:45},{name:'二頭彎舉',w:12,r:12,sets:3,rest:45}];
+    this.LEGS=[{name:'深蹲',w:80,r:8,sets:4,rest:120},{name:'腿推',w:120,r:10,sets:3,rest:90},{name:'羅馬尼亞硬舉',w:60,r:10,sets:3,rest:90},{name:'腿伸屈',w:40,r:12,sets:3,rest:60},{name:'腿後勾',w:35,r:12,sets:3,rest:60},{name:'小腿提踵',w:50,r:15,sets:3,rest:45}];
+    this.EX=this.PUSH; this.todayIdx=2;
+    const clone=a=>a.map(e=>({...e}));
+    this.state = {
+      screen:'welcome',
+      exIndex:0, setIndex:0, draftW:60, draftR:8,
+      restRem:0, restTot:90, elapsed:0, ticking:false,
+      log:this.PUSH.map(()=>[]), genTick:0,
+      week:[
+        {day:'一', name:'推日', sub:'胸肩三頭 · 已完成', done:true, ex:clone(this.PUSH)},
+        {day:'二', name:'拉日', sub:'背二頭 · 已完成', done:true, ex:clone(this.PULL)},
+        {day:'四', name:'推日', sub:'胸肩三頭 · 5 動作', today:true, ex:clone(this.PUSH)},
+        {day:'五', name:'腿日', sub:'股四頭・臀・小腿 · 6 動作', ex:clone(this.LEGS)},
+        {day:'日', name:'休息', sub:'讓肌肉恢復', rest:true, ex:[]},
+      ],
+      plan:clone(this.PUSH),
+      editDay:null, editIdx:null, eS:0, eR:0, eRest:0,
+      expandedDay:2,
+    };
+  }
+  componentDidMount(){
+    this._t=setInterval(()=>{
+      this.setState(s=>{
+        if(s.screen==='gen'){
+          const g=s.genTick+1;
+          if(g>=3) return {...s, screen:'confirm', genTick:0};
+          return {...s, genTick:g};
+        }
+        if(!s.ticking) return s;
+        let ns={...s, elapsed:s.elapsed+1};
+        if(s.screen==='rest'){
+          const rem=s.restRem-1;
+          if(rem<=0) return this.afterRest({...ns, restRem:0});
+          ns.restRem=rem;
+        }
+        return ns;
+      });
+    },1000);
+  }
+  componentWillUnmount(){ if(this._t) clearInterval(this._t); }
+  afterRest(s){
+    let ex=s.exIndex, st=s.setIndex; const cur=s.plan[ex];
+    if(st<cur.sets-1){ st++; } else { ex++; st=0; }
+    if(ex>=s.plan.length) return {...s, screen:'finished'};
+    const n=s.plan[ex];
+    return {...s, screen:'record', exIndex:ex, setIndex:st, draftW:n.w, draftR:n.r};
+  }
+  go=(scr)=>this.setState({screen:scr});
+  goWelcome=()=>this.setState({screen:'welcome', exIndex:0,setIndex:0,draftW:60,draftR:8,restRem:0,restTot:90,elapsed:0,ticking:false,log:this.EX.map(()=>[]),genTick:0});
+  goGen=()=>this.setState({screen:'gen', genTick:0});
+  goPre=()=>this.setState({screen:'pre'});
+  start=()=>this.setState(s=>{ const ex=s.week[this.todayIdx].ex; return {...s, screen:'record', ticking:true, exIndex:0, setIndex:0, draftW:ex[0].w, draftR:ex[0].r, elapsed:0, plan:ex.map(e=>({...e})), log:ex.map(()=>[])}; });
+  completeSet=()=>{
+    this.setState(s=>{
+      const cur=s.plan[s.exIndex];
+      const log=s.log.map((a,i)=> i===s.exIndex ? [...a,{w:s.draftW,r:s.draftR}] : a);
+      const isLast=(s.exIndex===s.plan.length-1)&&(s.setIndex===cur.sets-1);
+      if(isLast) return {...s, log, screen:'finished'};
+      return {...s, log, screen:'rest', restTot:cur.rest, restRem:cur.rest};
+    });
+  };
+  finishToHome=()=>this.setState({screen:'home', ticking:false});
+  skipRest=()=>this.setState(s=> s.screen==='rest' ? this.afterRest({...s, restRem:0}) : s);
+  addRest=()=>this.setState(s=> s.screen==='rest' ? {...s, restRem:s.restRem+30, restTot:Math.max(s.restTot,s.restRem+30)} : s);
+  openEdit=(day,idx)=>this.setState(s=>({...s, editDay:day, editIdx:idx, eS:s.week[day].ex[idx].sets, eR:s.week[day].ex[idx].r, eRest:s.week[day].ex[idx].rest}));
+  closeEdit=()=>this.setState({editIdx:null, editDay:null});
+  saveEdit=()=>this.setState(s=>{ const week=s.week.map((d,di)=> di===s.editDay ? {...d, ex:d.ex.map((e,i)=> i===s.editIdx ? {...e, sets:s.eS, r:s.eR, rest:s.eRest} : e)} : d); return {...s, week, editIdx:null, editDay:null}; });
+  toggleDay=(i)=>this.setState(s=>({...s, expandedDay: s.expandedDay===i ? null : i}));
+  eStep=(k,d,min,max)=>this.setState(s=>({...s, [k]:Math.max(min,Math.min(max,s[k]+d))}));
+  wUp=()=>this.setState(s=>({...s, draftW:Math.round((s.draftW+2.5)*10)/10}));
+  wDown=()=>this.setState(s=>({...s, draftW:Math.max(0,Math.round((s.draftW-2.5)*10)/10)}));
+  rUp=()=>this.setState(s=>({...s, draftR:s.draftR+1}));
+  rDown=()=>this.setState(s=>({...s, draftR:Math.max(0,s.draftR-1)}));
+  fmt(x){ const m=Math.floor(x/60), s=x%60; return m+':'+String(s).padStart(2,'0'); }
+  renderVals(){
+    const s=this.state;
+    const cur=s.plan[Math.min(s.exIndex,s.plan.length-1)];
+    const totalSets=s.plan.reduce((a,e)=>a+e.sets,0);
+    const doneSets=s.log.reduce((a,arr)=>a+arr.length,0);
+    const frac=s.restTot>0? s.restRem/s.restTot : 0;
+    const setDots=[]; for(let j=0;j<cur.sets;j++) setDots.push({done:j<s.setIndex, notdone:j>=s.setIndex});
+    const ti=this.todayIdx;
+    const weekRows = s.week.map((d,di)=>{
+      const expanded = s.expandedDay===di;
+      const editable = !d.done && !d.rest;
+      return {
+        day:d.day, name:d.name, sub:d.sub,
+        isDone:!!d.done, isToday:!!d.today, notRest:!d.rest, expanded,
+        bg: d.today ? 'radial-gradient(130% 90% at 80% 0%, #2a3324 0%, #1d1b15 60%)' : '#1e1c16',
+        border: d.today ? '1.5px solid #5fe39a' : '1px solid #1e1c16',
+        iconBg: d.today ? 'linear-gradient(135deg,#76f0ab,#28b56f)' : '#2a281f',
+        iconColor: d.today ? '#06281a' : (d.rest ? '#6f6d66' : '#5fe39a'),
+        nameColor: d.rest ? '#8a8a82' : (d.today ? '#fff' : '#cfcdc6'),
+        caret: expanded ? '⌄' : '›',
+        toggle: d.rest ? (()=>{}) : (()=>this.toggleDay(di)),
+        exList: d.ex.map((e,i)=>({ name:e.name, scheme:e.sets+'×'+e.r+' · 休'+e.rest+'s', editable, cursor: editable?'pointer':'default', edit: editable ? (()=>this.openEdit(di,i)) : (()=>{}) })),
+      };
+    });
+    const preList=s.week[ti].ex.map((e,i)=>({num:i+1, name:e.name, scheme:e.sets+' 組 × '+e.r+' 下 · '+e.w+'kg', edit:()=>this.openEdit(ti,i)}));
+    const summary=s.plan.map((e,i)=>{ const g=s.log[i]; return {name:e.name, actualStr: g.length? g.map(x=>x.w+'×'+x.r).join('  ') : '—'}; });
+    const nextLabel = s.setIndex<cur.sets-1 ? ('第 '+(s.setIndex+2)+' 組') : '下一個動作';
+    const msgs=['穩住節奏，下一組馬上開始','深呼吸，保持專注','補個水，準備再上','調整一下，你做得很好'];
+    const tabScreens=['home','plan','data','diet','profile'];
+    const lime='#5fe39a', off='#2c2b28', limeTxt='#5fe39a', offTxt='#6f6d66';
+    const dot=(t)=> s.screen===t ? lime : off;
+    const txt=(t)=> s.screen===t ? limeTxt : offTxt;
+    return {
+      isWelcome:s.screen==='welcome', isBody:s.screen==='body', isGoal:s.screen==='goal', isFreq:s.screen==='freq',
+      isGen:s.screen==='gen', isConfirm:s.screen==='confirm',
+      isHome:s.screen==='home', isPlan:s.screen==='plan', isData:s.screen==='data', isDiet:s.screen==='diet', isProfile:s.screen==='profile',
+      isPre:s.screen==='pre', isRecord:s.screen==='record', isRest:s.screen==='rest', isFinished:s.screen==='finished',
+      showTabs: tabScreens.indexOf(s.screen)>=0,
+      homeDot:dot('home'), homeTxt:txt('home'), planDot:dot('plan'), planTxt:txt('plan'),
+      dataDot:dot('data'), dataTxt:txt('data'), dietDot:dot('diet'), dietTxt:txt('diet'), profileDot:dot('profile'), profileTxt:txt('profile'),
+      preList, summary, setDots,
+      curName:cur.name, curScheme:cur.sets+' × '+cur.r, curWeight:cur.w, curSets:cur.sets,
+      exNum:s.exIndex+1, setNum:s.setIndex+1, draftW:s.draftW, draftR:s.draftR,
+      restText:this.fmt(s.restRem), restTotText:'建議 '+s.restTot+' 秒', restMsg:msgs[s.exIndex % msgs.length],
+      ringOff:527.8*(1-frac), genOff:314*(1-Math.min(s.genTick/3,1)),
+      elapsedText:this.fmt(s.elapsed), progText:doneSets+' / '+totalSets, nextLabel,
+      day1: s.week[ti].ex.slice(0,3).map((e,i)=>({name:e.name, scheme:e.sets+'×'+e.r+' · 休'+e.rest+'s', edit:()=>this.openEdit(ti,i)})),
+      weekRows,
+      editing: s.editIdx!==null,
+      editName: s.editDay!==null ? s.week[s.editDay].ex[s.editIdx].name : '',
+      eS:s.eS, eR:s.eR, eRest:s.eRest,
+      openEdit:this.openEdit, closeEdit:this.closeEdit, saveEdit:this.saveEdit,
+      eSetUp:()=>this.eStep('eS',1,1,10), eSetDn:()=>this.eStep('eS',-1,1,10),
+      eRepUp:()=>this.eStep('eR',1,1,30), eRepDn:()=>this.eStep('eR',-1,1,30),
+      eRestUp:()=>this.eStep('eRest',15,15,300), eRestDn:()=>this.eStep('eRest',-15,15,300),
+      goBody:()=>this.go('body'), goGoal:()=>this.go('goal'), goFreq:()=>this.go('freq'), goGen:this.goGen,
+      goHome:()=>this.go('home'), goPlan:()=>this.go('plan'), goData:()=>this.go('data'), goDiet:()=>this.go('diet'), goProfile:()=>this.go('profile'),
+      goPre:this.goPre, goWelcome:this.goWelcome,
+      start:this.start, completeSet:this.completeSet, skipRest:this.skipRest, addRest:this.addRest,
+      wUp:this.wUp, wDown:this.wDown, rUp:this.rUp, rDown:this.rDown, finishToHome:this.finishToHome,
+    };
+  }
+}
+</script>
+</body>
+</html>

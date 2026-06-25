@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}</style>
+</helmet>
+
+<div style="position:absolute;left:80px;top:-14px;font:700 28px 'Space Grotesk',sans-serif;color:#15140f">擴展畫面 · 高擬真</div>
+<div style="position:absolute;left:82px;top:26px;font:600 16px 'Caveat',cursive;color:#7a766c">AI 課表確認 · 身體數據 · 飲食記錄 · 個人頁 — 同一套 Lime × Graphite 語言</div>
+
+<!-- ============ S1 · AI CONFIRM ============ -->
+<div style="position:absolute;left:80px;top:74px;font:800 17px 'Space Grotesk',sans-serif;color:#15140f">① AI 課表確認（AI 預填 → 過目修改 → 存檔）</div>
+
+<!-- AI confirm overview -->
+<div style="position:absolute;left:80px;top:120px;width:300px">
+<div data-drags-parent="1" style="position:absolute;top:-22px;font:600 12px 'Caveat',cursive;color:rgba(60,50,40,.75)">課表預覽（可改）</div>
+<div style="width:300px;height:632px;background:#000;border-radius:44px;padding:7px;box-shadow:0 18px 44px rgba(0,0,0,.35)">
+<div style="width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative;background:#15140f;font-family:'Space Grotesk','Noto Sans TC',sans-serif">
+<div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:25px;background:#000;border-radius:13px;z-index:5"></div>
+<div style="display:flex;justify-content:space-between;padding:14px 22px 0;font:500 12px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:9px">●●● ▮</span></div>
+<div style="padding:18px 22px 0"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="font:600 11px 'Noto Sans TC';color:#5fe39a;background:rgba(95,227,154,.12);padding:5px 11px;border-radius:20px">✨ AI 已排好</span><span style="font:400 11px 'Noto Sans TC';color:#8a8a82">可修改</span></div><div style="font:900 22px 'Noto Sans TC';color:#fff">本週課表</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:5px">4 天 · 上下肢分化 · 點動作可調整</div></div>
+<div style="padding:16px 18px 0;display:flex;flex-direction:column;gap:10px">
+<div style="border-radius:16px;background:radial-gradient(130% 90% at 80% 0%, #2a3324 0%, #1d1b15 60%);border:1px solid #2c3325;padding:14px 15px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px"><div style="font:700 14px 'Noto Sans TC';color:#fff">第 1 天 · 推日</div><span style="font:400 10px 'Noto Sans TC';color:#8a8a82">5 動作</span></div>
+<div style="display:flex;flex-direction:column;gap:9px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 12px 'Noto Sans TC';color:#cfcdc6">槓鈴臥推</span><span style="font:500 11px 'Space Grotesk';color:#8a8a82">3×8 · 休90s</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 12px 'Noto Sans TC';color:#cfcdc6">啞鈴上斜推</span><span style="font:500 11px 'Space Grotesk';color:#8a8a82">3×10 · 休60s</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 12px 'Noto Sans TC';color:#cfcdc6">肩推</span><span style="font:500 11px 'Space Grotesk';color:#8a8a82">3×10 · 休60s</span></div>
+</div>
+</div>
+<div style="border-radius:16px;background:#1e1c16;padding:14px 15px;display:flex;justify-content:space-between;align-items:center"><div style="font:700 13px 'Noto Sans TC';color:#cfcdc6">第 2 天 · 拉日</div><span style="font:400 14px;color:#3a3833">›</span></div>
+<div style="border-radius:16px;background:#1e1c16;padding:14px 15px;display:flex;justify-content:space-between;align-items:center"><div style="font:700 13px 'Noto Sans TC';color:#cfcdc6">第 3 天 · 腿日</div><span style="font:400 14px;color:#3a3833">›</span></div>
+</div>
+<div style="position:absolute;left:18px;right:18px;bottom:26px;display:flex;gap:10px"><div style="flex:1;height:52px;border-radius:26px;border:1.5px solid #2c2b28;display:flex;align-items:center;justify-content:center;font:600 13px 'Noto Sans TC';color:#cfcdc6">重新生成</div><div style="flex:1.5;height:52px;border-radius:26px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 14px 'Noto Sans TC';color:#06281a;box-shadow:0 8px 20px rgba(95,227,154,.28)">確認並儲存</div></div>
+</div>
+</div>
+</div>
+
+<!-- AI confirm edit sheet -->
+<div style="position:absolute;left:420px;top:120px;width:300px">
+<div data-drags-parent="1" style="position:absolute;top:-22px;font:600 12px 'Caveat',cursive;color:rgba(60,50,40,.75)">編輯動作（彈出層）</div>
+<div style="width:300px;height:632px;background:#000;border-radius:44px;padding:7px;box-shadow:0 18px 44px rgba(0,0,0,.35)">
+<div style="width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative;background:#15140f;font-family:'Space Grotesk','Noto Sans TC',sans-serif">
+<div style="position:absolute;inset:0;background:rgba(0,0,0,.55)"></div>
+<div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:25px;background:#000;border-radius:13px;z-index:5"></div>
+<div style="display:flex;justify-content:space-between;padding:14px 22px 0;font:500 12px 'Space Grotesk';color:#5f5e57;position:relative"><span>9:41</span><span style="font-size:9px">●●● ▮</span></div>
+<div style="position:absolute;left:0;right:0;bottom:0;background:#1b1914;border-radius:28px 28px 38px 38px;padding:16px 22px 30px;box-shadow:0 -10px 30px rgba(0,0,0,.4)">
+<div style="width:40px;height:4px;border-radius:2px;background:#3a3833;margin:0 auto 18px"></div>
+<div style="font:700 18px 'Noto Sans TC';color:#fff;margin-bottom:4px">槓鈴臥推</div>
+<div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:22px">AI 建議 · 你可以調整</div>
+<div style="display:flex;gap:12px;margin-bottom:18px">
+<div style="flex:1"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:9px">組數</div><div style="background:#15140f;border-radius:13px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px"><span style="font:300 22px 'Space Grotesk';color:#6f6d66">−</span><span style="font:700 22px 'Space Grotesk';color:#fff">3</span><span style="font:300 20px 'Space Grotesk';color:#5fe39a">+</span></div></div>
+<div style="flex:1"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:9px">次數</div><div style="background:#15140f;border-radius:13px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px"><span style="font:300 22px 'Space Grotesk';color:#6f6d66">−</span><span style="font:700 22px 'Space Grotesk';color:#fff">8</span><span style="font:300 20px 'Space Grotesk';color:#5fe39a">+</span></div></div>
+</div>
+<div style="margin-bottom:24px"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:9px">建議休息</div><div style="background:#15140f;border-radius:13px;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px"><span style="font:300 22px 'Space Grotesk';color:#6f6d66">−</span><span style="font:700 22px 'Space Grotesk';color:#fff">90<span style="font-size:12px;font-weight:400;color:#8a8a82"> 秒</span></span><span style="font:300 20px 'Space Grotesk';color:#5fe39a">+</span></div></div>
+<div style="height:54px;border-radius:27px;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 15px 'Noto Sans TC';color:#06281a">完成</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ S2 · BODY DATA ============ -->
+<div style="position:absolute;left:820px;top:74px;font:800 17px 'Space Grotesk',sans-serif;color:#15140f">② 身體數據（趨勢追蹤）</div>
+
+<div style="position:absolute;left:820px;top:120px;width:300px">
+<div data-drags-parent="1" style="position:absolute;top:-22px;font:600 12px 'Caveat',cursive;color:rgba(60,50,40,.75)">數據分頁</div>
+<div style="width:300px;height:632px;background:#000;border-radius:44px;padding:7px;box-shadow:0 18px 44px rgba(0,0,0,.35)">
+<div style="width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative;background:#15140f;font-family:'Space Grotesk','Noto Sans TC',sans-serif">
+<div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:25px;background:#000;border-radius:13px;z-index:5"></div>
+<div style="display:flex;justify-content:space-between;padding:14px 22px 0;font:500 12px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:9px">●●● ▮</span></div>
+<div style="padding:18px 22px 0;display:flex;justify-content:space-between;align-items:center"><div style="font:900 22px 'Noto Sans TC';color:#fff">身體數據</div><div style="width:34px;height:34px;border-radius:11px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:300 22px 'Space Grotesk';color:#5fe39a">+</div></div>
+<!-- metric tabs -->
+<div style="display:flex;gap:7px;padding:16px 18px 0"><div style="background:rgba(95,227,154,.14);border:1.5px solid #5fe39a;border-radius:20px;padding:7px 15px;font:600 12px 'Noto Sans TC';color:#5fe39a">體重</div><div style="background:#1e1c16;border-radius:20px;padding:7px 15px;font:500 12px 'Noto Sans TC';color:#8a8a82">體脂</div><div style="background:#1e1c16;border-radius:20px;padding:7px 15px;font:500 12px 'Noto Sans TC';color:#8a8a82">圍度</div></div>
+<!-- big number -->
+<div style="padding:20px 22px 0"><div style="display:flex;align-items:baseline;gap:8px"><span style="font:700 46px 'Space Grotesk';color:#fff;letter-spacing:-1px">72.4</span><span style="font:400 14px 'Noto Sans TC';color:#8a8a82">kg</span><span style="font:600 13px 'Space Grotesk';color:#5fe39a;margin-left:auto">↓ 1.8 kg</span></div><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-top:2px">過去 90 天</div></div>
+<!-- chart -->
+<div style="padding:16px 18px 0">
+<div style="background:#1e1c16;border-radius:18px;padding:18px 14px 14px">
+<svg width="100%" height="120" viewBox="0 0 248 120" preserveAspectRatio="none">
+<line x1="0" y1="30" x2="248" y2="30" stroke="#26241d" stroke-width="1"></line><line x1="0" y1="70" x2="248" y2="70" stroke="#26241d" stroke-width="1"></line>
+<polyline points="0,18 31,26 62,22 93,44 124,40 155,62 186,70 217,82 248,96" fill="none" stroke="#5fe39a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 6px rgba(95,227,154,.4))"></polyline>
+<circle cx="248" cy="96" r="4.5" fill="#5fe39a"></circle>
+</svg>
+<div style="display:flex;justify-content:space-between;margin-top:10px;font:400 10px 'Space Grotesk';color:#6f6d66"><span>3月</span><span>4月</span><span>5月</span><span>6月</span></div>
+</div>
+</div>
+<!-- recent logs -->
+<div style="padding:14px 18px 0"><div style="font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:10px">最近紀錄</div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:9px;border-bottom:1px solid #232220"><span style="font:400 12px 'Noto Sans TC';color:#cfcdc6">6/25</span><span style="font:600 13px 'Space Grotesk';color:#fff">72.4 kg</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #232220"><span style="font:400 12px 'Noto Sans TC';color:#cfcdc6">6/22</span><span style="font:600 13px 'Space Grotesk';color:#fff">73.0 kg</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ S3 · DIET ============ -->
+<div style="position:absolute;left:1160px;top:74px;font:800 17px 'Space Grotesk',sans-serif;color:#15140f">③ 飲食記錄</div>
+
+<div style="position:absolute;left:1160px;top:120px;width:300px">
+<div data-drags-parent="1" style="position:absolute;top:-22px;font:600 12px 'Caveat',cursive;color:rgba(60,50,40,.75)">今日飲食</div>
+<div style="width:300px;height:632px;background:#000;border-radius:44px;padding:7px;box-shadow:0 18px 44px rgba(0,0,0,.35)">
+<div style="width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative;background:#15140f;font-family:'Space Grotesk','Noto Sans TC',sans-serif">
+<div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:25px;background:#000;border-radius:13px;z-index:5"></div>
+<div style="display:flex;justify-content:space-between;padding:14px 22px 0;font:500 12px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:9px">●●● ▮</span></div>
+<div style="padding:18px 22px 0"><div style="font:900 22px 'Noto Sans TC';color:#fff">今日飲食</div><div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:5px">6 月 25 日 · 增肌期目標</div></div>
+<!-- calorie ring -->
+<div style="display:flex;align-items:center;gap:18px;padding:18px 22px 0">
+<div style="position:relative;width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center"><svg width="96" height="96" viewBox="0 0 96 96"><g transform="rotate(-90 48 48)"><circle cx="48" cy="48" r="40" fill="none" stroke="#26241d" stroke-width="8"></circle><circle cx="48" cy="48" r="40" fill="none" stroke="#5fe39a" stroke-width="8" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="74" style="filter:drop-shadow(0 0 6px rgba(95,227,154,.4))"></circle></g></svg><div style="position:absolute;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#fff">1850</div><div style="font:400 9px 'Noto Sans TC';color:#8a8a82">/ 2500</div></div></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:11px">
+<div><div style="display:flex;justify-content:space-between;font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:5px"><span>蛋白質</span><span style="color:#5fe39a;font-family:'Space Grotesk'">120 / 160g</span></div><div style="height:6px;border-radius:3px;background:#26241d;overflow:hidden"><div style="width:75%;height:100%;background:#5fe39a"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:5px"><span>碳水</span><span style="color:#cfcdc6;font-family:'Space Grotesk'">180 / 280g</span></div><div style="height:6px;border-radius:3px;background:#26241d;overflow:hidden"><div style="width:64%;height:100%;background:#cfcdc6"></div></div></div>
+<div><div style="display:flex;justify-content:space-between;font:400 11px 'Noto Sans TC';color:#8a8a82;margin-bottom:5px"><span>脂肪</span><span style="color:#cfcdc6;font-family:'Space Grotesk'">52 / 70g</span></div><div style="height:6px;border-radius:3px;background:#26241d;overflow:hidden"><div style="width:74%;height:100%;background:#cfcdc6"></div></div></div>
+</div>
+</div>
+<!-- meals -->
+<div style="padding:20px 18px 0;display:flex;flex-direction:column;gap:9px">
+<div style="border-radius:15px;background:#1e1c16;padding:13px 15px;display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;border-radius:10px;background:#2a281f;display:flex;align-items:center;justify-content:center;font:15px">🍳</div><div style="flex:1"><div style="font:700 13px 'Noto Sans TC';color:#fff">早餐</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:2px">蛋餅・豆漿</div></div><span style="font:600 12px 'Space Grotesk';color:#cfcdc6">480</span></div>
+<div style="border-radius:15px;background:#1e1c16;padding:13px 15px;display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;border-radius:10px;background:#2a281f;display:flex;align-items:center;justify-content:center;font:15px">🍱</div><div style="flex:1"><div style="font:700 13px 'Noto Sans TC';color:#fff">午餐</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:2px">雞胸便當</div></div><span style="font:600 12px 'Space Grotesk';color:#cfcdc6">720</span></div>
+<div style="border-radius:15px;background:#15140f;border:1.5px dashed #2c2b28;padding:13px 15px;display:flex;align-items:center;justify-content:center;gap:8px"><span style="font:300 18px 'Space Grotesk';color:#5fe39a">+</span><span style="font:600 12px 'Noto Sans TC';color:#8a8a82">記錄晚餐</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ S4 · PROFILE ============ -->
+<div style="position:absolute;left:1500px;top:74px;font:800 17px 'Space Grotesk',sans-serif;color:#15140f">④ 個人頁</div>
+
+<div style="position:absolute;left:1500px;top:120px;width:300px">
+<div data-drags-parent="1" style="position:absolute;top:-22px;font:600 12px 'Caveat',cursive;color:rgba(60,50,40,.75)">我的</div>
+<div style="width:300px;height:632px;background:#000;border-radius:44px;padding:7px;box-shadow:0 18px 44px rgba(0,0,0,.35)">
+<div style="width:100%;height:100%;border-radius:38px;overflow:hidden;position:relative;background:#15140f;font-family:'Space Grotesk','Noto Sans TC',sans-serif">
+<div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:25px;background:#000;border-radius:13px;z-index:5"></div>
+<div style="display:flex;justify-content:space-between;padding:14px 22px 0;font:500 12px 'Space Grotesk';color:#c9c6bd"><span>9:41</span><span style="font-size:9px">●●● ▮</span></div>
+<!-- profile head -->
+<div style="display:flex;flex-direction:column;align-items:center;padding:24px 22px 0">
+<div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#76f0ab,#28b56f);display:flex;align-items:center;justify-content:center;font:700 28px 'Space Grotesk';color:#06281a;box-shadow:0 0 24px rgba(95,227,154,.4)">凱</div>
+<div style="font:900 19px 'Noto Sans TC';color:#fff;margin-top:14px">阿凱</div>
+<div style="font:400 12px 'Noto Sans TC';color:#8a8a82;margin-top:4px">增肌中 · 已堅持 87 天 🔥</div>
+</div>
+<!-- streak stats -->
+<div style="display:flex;gap:10px;padding:22px 18px 0">
+<div style="flex:1;background:#1e1c16;border-radius:15px;padding:13px;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#5fe39a">48</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:3px">總訓練</div></div>
+<div style="flex:1;background:#1e1c16;border-radius:15px;padding:13px;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#fff">12</div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:3px">連續週</div></div>
+<div style="flex:1;background:#1e1c16;border-radius:15px;padding:13px;text-align:center"><div style="font:700 20px 'Space Grotesk';color:#fff">5.2<span style="font-size:10px;color:#8a8a82">t</span></div><div style="font:400 10px 'Noto Sans TC';color:#8a8a82;margin-top:3px">總噸位</div></div>
+</div>
+<!-- menu -->
+<div style="padding:18px 18px 0;display:flex;flex-direction:column;gap:2px">
+<div style="display:flex;align-items:center;gap:13px;padding:14px 6px;border-bottom:1px solid #1e1c16"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">🎯</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#cfcdc6">目標與身體資料</span><span style="font:400 14px;color:#3a3833">›</span></div>
+<div style="display:flex;align-items:center;gap:13px;padding:14px 6px;border-bottom:1px solid #1e1c16"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">📋</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#cfcdc6">我的課表</span><span style="font:400 14px;color:#3a3833">›</span></div>
+<div style="display:flex;align-items:center;gap:13px;padding:14px 6px;border-bottom:1px solid #1e1c16"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">🔔</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#cfcdc6">提醒與通知</span><span style="font:400 14px;color:#3a3833">›</span></div>
+<div style="display:flex;align-items:center;gap:13px;padding:14px 6px"><div style="width:30px;height:30px;border-radius:9px;background:#1e1c16;display:flex;align-items:center;justify-content:center;font:13px">⚙️</div><span style="flex:1;font:500 13px 'Noto Sans TC';color:#cfcdc6">一般設定</span><span style="font:400 14px;color:#3a3833">›</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="position:absolute;left:80px;top:790px;width:300px;background:#fef4a8;padding:13px 16px;font:14px/1.6 'Caveat',cursive;color:#4a4533;box-shadow:0 1px 3px rgba(0,0,0,.12);transform:rotate(-.8deg)"><b>AI 課表確認</b><br>沿用「AI 預填 → 過目修改 → 存檔」慣例。確認鍵比重新生成醒目；編輯彈出層用大字步進器，跟主場景記錄頁同款。</div>
+
+<div style="position:absolute;left:820px;top:790px;width:300px;background:#fef4a8;padding:13px 16px;font:14px/1.6 'Caveat',cursive;color:#4a4533;box-shadow:0 1px 3px rgba(0,0,0,.12);transform:rotate(.7deg)"><b>身體數據</b><br>預設只看體重，體脂／圍度收成分頁切換，避免一次塞太多。大數字＋發光折線，趨勢一眼看懂。</div>
+
+<div style="position:absolute;left:1160px;top:790px;width:300px;background:#fef4a8;padding:13px 16px;font:14px/1.6 'Caveat',cursive;color:#4a4533;box-shadow:0 1px 3px rgba(0,0,0,.12);transform:rotate(-.6deg)"><b>飲食記錄</b><br>熱量環＋三大營養素長條，蛋白質用綠色強調（增肌最在意）。餐別卡片快速記，空餐用虛線提示。</div>
+
+<div style="position:absolute;left:1500px;top:790px;width:300px;background:#fef4a8;padding:13px 16px;font:14px/1.6 'Caveat',cursive;color:#4a4533;box-shadow:0 1px 3px rgba(0,0,0,.12);transform:rotate(1deg)"><b>個人頁</b><br>堅持天數＋連續週＋總噸位營造成就感（鼓勵調性）。設定項目克制，不堆功能。</div>
+
+</x-dc>
+</body>
+</html>
