@@ -42,6 +42,8 @@ dependencies:
   riverpod_annotation: ^4.0.3
   drift: ^2.34.0
   google_fonts: ^8.1.0
+  flutter_timezone: ^5.1.0
+  timezone: ^0.10.1
 
 dev_dependencies:
   flutter_test:

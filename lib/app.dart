@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/notifications/rest_notification_service.dart';
 import 'core/theme/app_colors.dart';
 import 'core/theme/app_dimens.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/app_typography.dart';
+import 'features/workout/rest_countdown.dart';
 
 class GymyApp extends StatelessWidget {
   const GymyApp({super.key});
@@ -19,13 +22,26 @@ class GymyApp extends StatelessWidget {
   }
 }
 
-/// 暫時的佔位首頁，僅用來確認設計 token / 主題正確套用。
+/// 暫時的佔位首頁：確認設計 token / 主題，並提供 debug 用的休息通知測試。
 /// 之後會被真正的導覽骨架取代。
-class _FoundationPlaceholder extends StatelessWidget {
+class _FoundationPlaceholder extends ConsumerWidget {
   const _FoundationPlaceholder();
 
+  Future<void> _testRestNotification(BuildContext context, WidgetRef ref) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final service = ref.read(restNotificationServiceProvider);
+    final granted = await service.requestPermission();
+    final rest = RestCountdown.start(totalSeconds: 5, now: DateTime.now());
+    await service.scheduleRestEnd(id: 1, endsAt: rest.endsAt);
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text(granted ? '已排 5 秒後的休息通知，可鎖屏測試' : '通知權限未取得'),
+      ),
+    );
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Center(
         child: Padding(
@@ -39,7 +55,8 @@ class _FoundationPlaceholder extends StatelessWidget {
               const SizedBox(height: AppSpacing.xl),
               Text(
                 '01:30',
-                style: AppTypography.timerLarge.copyWith(color: AppColors.accent),
+                style:
+                    AppTypography.timerLarge.copyWith(color: AppColors.accent),
               ),
               const SizedBox(height: AppSpacing.xl),
               Container(
@@ -60,6 +77,11 @@ class _FoundationPlaceholder extends StatelessWidget {
                     color: AppColors.onAccent,
                   ),
                 ),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              TextButton(
+                onPressed: () => _testRestNotification(context, ref),
+                child: Text('🔔 測試休息通知（5 秒）', style: AppTypography.body),
               ),
             ],
           ),
