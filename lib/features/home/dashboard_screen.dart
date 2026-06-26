@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/db/app_database.dart';
+import '../../core/providers.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_dimens.dart';
 import '../../core/theme/app_typography.dart';
 import '../workout/sample_plan.dart';
 import '../workout/screens/workout_session_screen.dart';
 
+String _fmtWeight(double v) =>
+    v == v.roundToDouble() ? v.toStringAsFixed(0) : v.toStringAsFixed(1);
+
 /// 首頁 Dashboard（設計 #8）：問候、今日訓練卡、統計卡。
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
 
   String _greeting() {
@@ -29,8 +35,15 @@ class DashboardScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final now = DateTime.now();
+    final metrics =
+        ref.watch(bodyMetricsStreamProvider).asData?.value ??
+            const <BodyMetric>[];
+    final weights = metrics.where((m) => m.weightKg != null).toList();
+    final weightText =
+        weights.isEmpty ? '尚未記錄' : '${_fmtWeight(weights.last.weightKg!)} kg';
+
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -66,10 +79,11 @@ class DashboardScreen extends StatelessWidget {
             _TodayCard(onStart: () => _startWorkout(context)),
             const SizedBox(height: AppSpacing.lg),
             Row(
-              children: const [
-                Expanded(child: _StatCard(label: '體重', value: '尚未記錄')),
-                SizedBox(width: AppSpacing.md),
-                Expanded(child: _StatCard(label: '本週訓練', value: '0 次')),
+              children: [
+                Expanded(child: _StatCard(label: '體重', value: weightText)),
+                const SizedBox(width: AppSpacing.md),
+                const Expanded(
+                    child: _StatCard(label: '本週訓練', value: '0 次')),
               ],
             ),
           ],

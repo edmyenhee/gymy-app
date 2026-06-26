@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'data/body_metrics_repository.dart';
 import 'data/profile_repository.dart';
 import 'data/workout_repository.dart';
 import 'db/app_database.dart';
@@ -20,4 +21,13 @@ final profileRepositoryProvider = Provider<ProfileRepository>(
 
 final workoutRepositoryProvider = Provider<WorkoutRepository>(
   (ref) => WorkoutRepository(ref.watch(appDatabaseProvider)),
+);
+
+final bodyMetricsRepositoryProvider = Provider<BodyMetricsRepository>(
+  (ref) => BodyMetricsRepository(ref.watch(appDatabaseProvider)),
+);
+
+/// 體組成紀錄（時間升序），DB 變動自動更新。
+final bodyMetricsStreamProvider = StreamProvider<List<BodyMetric>>(
+  (ref) => ref.watch(bodyMetricsRepositoryProvider).watchMetrics(),
 );

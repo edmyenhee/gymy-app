@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
+import '../metrics/metrics_screen.dart';
 import 'dashboard_screen.dart';
 
 /// App 外殼：底部 5 分頁導覽 + 各分頁內容。
@@ -18,7 +19,7 @@ class _HomeShellState extends State<HomeShell> {
   static const List<Widget> _pages = [
     DashboardScreen(),
     _ComingSoon(title: '課表', icon: Icons.event_note),
-    _ComingSoon(title: '數據', icon: Icons.show_chart),
+    MetricsScreen(),
     _ComingSoon(title: '飲食', icon: Icons.restaurant_menu),
     _ComingSoon(title: '我', icon: Icons.person),
   ];
