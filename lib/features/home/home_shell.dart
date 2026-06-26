@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../metrics/metrics_screen.dart';
+import '../profile/profile_screen.dart';
 import 'dashboard_screen.dart';
 
 /// App 外殼：底部 5 分頁導覽 + 各分頁內容。
@@ -21,7 +22,7 @@ class _HomeShellState extends State<HomeShell> {
     _ComingSoon(title: '課表', icon: Icons.event_note),
     MetricsScreen(),
     _ComingSoon(title: '飲食', icon: Icons.restaurant_menu),
-    _ComingSoon(title: '我', icon: Icons.person),
+    ProfileScreen(),
   ];
 
   @override

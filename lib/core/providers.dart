@@ -19,6 +19,11 @@ final profileRepositoryProvider = Provider<ProfileRepository>(
   (ref) => ProfileRepository(ref.watch(appDatabaseProvider)),
 );
 
+/// 目前使用者的 profile（沒有則 null）。編輯後 invalidate 重讀。
+final profileProvider = FutureProvider<UserProfile?>(
+  (ref) => ref.watch(profileRepositoryProvider).getProfile(),
+);
+
 final workoutRepositoryProvider = Provider<WorkoutRepository>(
   (ref) => WorkoutRepository(ref.watch(appDatabaseProvider)),
 );
