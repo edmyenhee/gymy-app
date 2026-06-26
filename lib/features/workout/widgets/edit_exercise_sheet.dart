@@ -108,6 +108,8 @@ class _EditExerciseSheetState extends State<_EditExerciseSheet> {
               if (_sets > 1) _sets--;
             }),
             onPlus: () => setState(() => _sets++),
+            onValueChanged: (n) =>
+                setState(() => _sets = n.toInt() < 1 ? 1 : n.toInt()),
           ),
           const SizedBox(height: AppSpacing.lg),
           ValueStepper(
@@ -117,16 +119,23 @@ class _EditExerciseSheetState extends State<_EditExerciseSheet> {
               if (_reps > 1) _reps--;
             }),
             onPlus: () => setState(() => _reps++),
+            onValueChanged: (n) =>
+                setState(() => _reps = n.toInt() < 1 ? 1 : n.toInt()),
           ),
           const SizedBox(height: AppSpacing.lg),
           ValueStepper(
             label: '重量 (kg)',
             value: _w(_weight),
+            keyboardDecimal: true,
             onMinus: () => setState(() {
               final w = _weight - 2.5;
               _weight = w < 0 ? 0 : w;
             }),
             onPlus: () => setState(() => _weight += 2.5),
+            onValueChanged: (n) => setState(() {
+              final w = n.toDouble();
+              _weight = w < 0 ? 0 : w;
+            }),
           ),
           const SizedBox(height: AppSpacing.lg),
           ValueStepper(
@@ -137,6 +146,10 @@ class _EditExerciseSheetState extends State<_EditExerciseSheet> {
               _rest = r < 0 ? 0 : r;
             }),
             onPlus: () => setState(() => _rest += 5),
+            onValueChanged: (n) => setState(() {
+              final r = n.toInt();
+              _rest = r < 0 ? 0 : r;
+            }),
           ),
           const SizedBox(height: AppSpacing.xl),
           GestureDetector(

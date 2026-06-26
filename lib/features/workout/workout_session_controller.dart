@@ -134,6 +134,18 @@ class WorkoutSessionController extends Notifier<WorkoutSessionState?> {
     state = s.copyWith(draftReps: r);
   }
 
+  void setWeight(double w) {
+    final s = state;
+    if (s == null) return;
+    state = s.copyWith(draftWeight: w < 0 ? 0 : w);
+  }
+
+  void setReps(int r) {
+    final s = state;
+    if (s == null) return;
+    state = s.copyWith(draftReps: r < 1 ? 1 : r);
+  }
+
   void setRpe(int? v) {
     final s = state;
     if (s == null) return;

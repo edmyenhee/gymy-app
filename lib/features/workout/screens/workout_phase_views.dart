@@ -133,7 +133,7 @@ class _ExerciseRow extends StatelessWidget {
 
 // ───────────────────────── 記錄這組 ─────────────────────────
 
-/// 記錄這一組：weight / reps 步進器 + RPE pill（選填）+ 完成這組。
+/// 記錄這一組：weight / reps 步進器（可點數字鍵盤輸入）+ RPE pill（選填）+ 完成這組。
 class RecordSetView extends StatelessWidget {
   const RecordSetView({
     super.key,
@@ -147,6 +147,8 @@ class RecordSetView extends StatelessWidget {
     required this.rpe,
     required this.onWeightDelta,
     required this.onRepsDelta,
+    required this.onWeightSet,
+    required this.onRepsSet,
     required this.onRpe,
     required this.onCompleteSet,
   });
@@ -161,6 +163,8 @@ class RecordSetView extends StatelessWidget {
   final int? rpe;
   final ValueChanged<double> onWeightDelta;
   final ValueChanged<int> onRepsDelta;
+  final ValueChanged<double> onWeightSet;
+  final ValueChanged<int> onRepsSet;
   final ValueChanged<int?> onRpe;
   final VoidCallback onCompleteSet;
 
@@ -190,15 +194,34 @@ class RecordSetView extends StatelessWidget {
                 total: exercise.plannedSets,
                 done: exercise.loggedSets.length,
               ),
-              const SizedBox(height: AppSpacing.sm),
-              Text('SET $setNumber / ${exercise.plannedSets}',
-                  style: AppTypography.label),
+              const SizedBox(height: AppSpacing.md),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text('SET ',
+                      style: AppTypography.zh(
+                          size: 18,
+                          weight: FontWeight.w700,
+                          color: AppColors.textTertiary)),
+                  Text('$setNumber',
+                      style: AppTypography.number(
+                          size: 30,
+                          weight: FontWeight.w700,
+                          color: AppColors.accent)),
+                  Text(' / ${exercise.plannedSets}',
+                      style: AppTypography.number(
+                          size: 18, color: AppColors.textSecondary)),
+                ],
+              ),
               const Spacer(),
               ValueStepper(
                 label: '重量 (kg)',
                 value: _fmtWeight(weightKg),
                 onMinus: () => onWeightDelta(-2.5),
                 onPlus: () => onWeightDelta(2.5),
+                onValueChanged: (n) => onWeightSet(n.toDouble()),
+                keyboardDecimal: true,
               ),
               const SizedBox(height: AppSpacing.xl),
               ValueStepper(
@@ -206,6 +229,7 @@ class RecordSetView extends StatelessWidget {
                 value: '$reps',
                 onMinus: () => onRepsDelta(-1),
                 onPlus: () => onRepsDelta(1),
+                onValueChanged: (n) => onRepsSet(n.toInt()),
               ),
               const SizedBox(height: AppSpacing.xl),
               _RpePills(value: rpe, onRpe: onRpe),
@@ -251,12 +275,49 @@ class _RpePills extends StatelessWidget {
   final int? value;
   final ValueChanged<int?> onRpe;
 
+  void _showInfo(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: AppColors.surfaceHigh,
+        title: Text('RPE 自覺強度', style: AppTypography.sectionTitle),
+        content: Text(
+          '這一組你覺得有多吃力（1–10），選填。\n\n'
+          '10 = 力竭，再也做不動\n'
+          '9 = 大概還能多做 1 下\n'
+          '8 = 還能多做約 2 下\n'
+          '7 = 還能多做約 3 下\n'
+          '6 以下 = 還算輕鬆\n\n'
+          '之後週期回顧會用它判斷疲勞、調整課表。',
+          style: AppTypography.body,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: Text('知道了',
+                style: AppTypography.zh(
+                    size: 14,
+                    weight: FontWeight.w700,
+                    color: AppColors.accent)),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text('強度 RPE', style: AppTypography.label),
-        const SizedBox(width: AppSpacing.md),
+        const SizedBox(width: 4),
+        GestureDetector(
+          onTap: () => _showInfo(context),
+          behavior: HitTestBehavior.opaque,
+          child: const Icon(Icons.help_outline,
+              size: 15, color: AppColors.textTertiary),
+        ),
+        const SizedBox(width: AppSpacing.sm),
         for (final v in const [6, 7, 8, 9, 10])
           Padding(
             padding: const EdgeInsets.only(right: 6),

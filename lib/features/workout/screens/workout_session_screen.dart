@@ -95,6 +95,8 @@ class _WorkoutSessionScreenState extends ConsumerState<WorkoutSessionScreen> {
           rpe: state.draftRpe,
           onWeightDelta: controller.weightDelta,
           onRepsDelta: controller.repsDelta,
+          onWeightSet: controller.setWeight,
+          onRepsSet: controller.setReps,
           onRpe: controller.setRpe,
           onCompleteSet: controller.completeSet,
         );

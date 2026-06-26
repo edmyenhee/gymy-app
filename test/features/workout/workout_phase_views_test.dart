@@ -30,13 +30,16 @@ void main() {
       rpe: null,
       onWeightDelta: (_) {},
       onRepsDelta: (_) {},
+      onWeightSet: (_) {},
+      onRepsSet: (_) {},
       onRpe: (v) => pickedRpe = v,
       onCompleteSet: () => completed = true,
     )));
 
     expect(find.text('臥推'), findsOneWidget);
     expect(find.textContaining('目標 3×5'), findsOneWidget);
-    expect(find.text('SET 1 / 3'), findsOneWidget);
+    expect(find.text('SET '), findsOneWidget);
+    expect(find.text(' / 3'), findsOneWidget);
     expect(find.text('完成這組'), findsOneWidget);
 
     await tester.tap(find.text('8')); // 點 RPE pill
