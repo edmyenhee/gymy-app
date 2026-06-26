@@ -10,7 +10,7 @@ void main() {
   testWidgets('App 啟動並套用主題', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: GymyApp()));
 
-    expect(find.text('Gymy'), findsOneWidget);
-    expect(find.text('開始今天的訓練'), findsOneWidget);
+    expect(find.text('首頁'), findsOneWidget);
+    expect(find.text('開始訓練'), findsOneWidget);
   });
 }
